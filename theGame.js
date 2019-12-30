@@ -87,6 +87,10 @@ const lalat =
    x: 50, y: 150, w: 34, h: 26,
    
    frame : 0,
+     
+   gravity: 0.25,
+   jump: 4.6,
+   speed:0,
    
    draw :function()
    {
@@ -98,6 +102,28 @@ const lalat =
   flap : function()
   {
   },
+    
+  update : function()
+  {
+    //Lalat bergerak lambat di awal
+    this.period = state.current == state.getStart ? 10:5;
+    
+    //Peningkatan gerakan animasi per frame setiap periode
+    this.frame += frames%this.period == 0 ? 1:0;
+    
+    //Frame dari 0-4 dan kembali ke 0
+    this.frame = this.frame%this.animtaion.length;
+    
+    if(state.current == state.getStart)
+    {
+      
+    }
+    else
+    {
+      this.speed += this.gravity;
+      this.y  += this.speed;
+    }
+  }
 }
 
 //Start the Game Notice
@@ -154,6 +180,7 @@ function draw()
 //Update
 function update()
 {
+  lalat.update();
 }
 
 //Loop
