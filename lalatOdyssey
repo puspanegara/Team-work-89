@@ -1,0 +1,20 @@
+<!DOCETYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lalat Odyssey</title>
+    <style>
+      canvas 
+      {
+      border: 1px solid #000;
+      display: block;
+      margin: 0 auto:
+      }
+    </style>
+  </head>
+  
+  <body>
+    <canvas id="lalat" width="320" height="480"></canvas>
+    <script src="theGame.js"></script>
+  </body>
+</html>
