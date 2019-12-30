@@ -11,12 +11,30 @@ sprite.src = "img/sprite.png";
 //Game State
 const state = 
 {
-  
+  current : 0,
+  getSart: 0,
+  game:1,
+  over:2
 }
+
 //Game Control
-document.addEventListener("click", function(evt)
+cvs.addEventListener("click", function(evt)
 {
-  
+  switch(state.current)
+  {
+    case state.getStart:
+        state.current = stage.game;
+        break;
+      
+    case state.game:
+      lalat.flap();
+      break;
+      
+    case state.over:
+      state.current = state.getStart;
+      break;
+      
+  }
 });
 
 //Background
@@ -63,7 +81,7 @@ const lalat =
   {sX: 276, sY: 112},
   {sX: 276, sY: 139},
   {sX: 276, sY: 164},
-  {sX: 276, sY: 139
+  {sX: 276, sY: 139}
  ],
    
    x: 50, y: 150, w: 34, h: 26,
@@ -76,6 +94,10 @@ const lalat =
     
     ctx.drawImage(sprite, lalat.sX, lalat.sY, this.w, this.h, this.x - this.w/2, this.y - this.h/2, this.w, this.h);
    }
+
+  flap : function()
+  {
+  },
 }
 
 //Start the Game Notice
@@ -90,7 +112,10 @@ const getStart =
   
   draw : function()
   {
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+    if (state.current == state.getStart)
+    {
+      ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+    } 
   }
 }
 
@@ -105,9 +130,11 @@ const gameOver=
   y: 90,
   
   draw : function()
-  
   {
-    ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+    if (state.current == state.over)
+    {
+      ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+    }
   }
 }
 
