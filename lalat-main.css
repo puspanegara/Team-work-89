@@ -79,3 +79,46 @@ html, body
   z-index: 100;
 }
 
+#scoring img
+{
+  display: inline-block;
+  padding: 1px;
+}
+
+#splash
+{
+  position: absolute;
+  opacity:1px;
+  top: 75px;
+  left: 65px;
+  width: 100px; //Bisa diatur sesuai dengan denga ukuran gambarnya
+  height: 170px; //Bisa diatur sesuai dengan denga ukuran gambarnya
+  background-image: url("../assets/splash.png");
+  background-repeat: no-repeat;
+}
+
+#scoreboar
+{
+  position: absolute;
+  display: none;
+  opacity: 0;
+  top: 62px;
+  left: 43px;
+  width: 236px; //Bisa diatur sesuai dengan denga ukuran gambarnya
+  height: 280px; //Bisa diatur sesuai dengan denga ukuran gambarnya
+  background-image: url("../assets/scoreboard.png");
+  background-repeat: no-repeat;
+  z-index: 1000;
+}
+
+#currenscore
+{
+  position: absolute;
+  display: none;
+  opacity: 0;
+  top: 105px;
+  left: 107px;
+  width: 104px; //Bisa diatur sesuai dengan denga ukuran gambarnya
+  height: 14px; //Bisa diatur sesuai dengan denga ukuran gambarnya
+  text-align: right;
+}
