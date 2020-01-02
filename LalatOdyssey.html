@@ -1,5 +1,6 @@
 <html>
 <head>
+
  <title>Lalat: Odyssey</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +24,7 @@
  <body>
 	<h1><b>Lalat: Odyssey<div id="div1" class="fa"></div></b></h1>
 	<h3>The odyssey of The Lalat begins with You!</h3>
-	<canvas id="myCanvas" width=320 height=480  style="background:url('Img/background.png');  background-size: 100%; height: 95% "></canvas>
+	<canvas id="myCanvas" width=640 height=480  style="background:url('Img/background.png');  background-size: 100%; height: 95% "></canvas>
     <h3><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></h3>
 	<script> 
 function smile() {
@@ -48,10 +49,11 @@ function myFunction(x) {
 }
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
+
  var ctx = myCanvas.getContext("2d"); 
  var FPS = 40;                  
- var jump_amount = -10;              
- var max_fall_speed= +10;             
+ var jump_amount = -8;              
+ var max_fall_speed= +8;             
  var acceleration = 1;          
  var pipe_speed = -2;                
  var game_mode = 'prestart';          
@@ -100,9 +102,11 @@ function Got_Player_Input(MyEvent) {
                         break;
                         } 
       case 'over': if (new Date() - time_game_last_running > 1000) {
+	  
                     reset_game();
                     game_mode = 'running';
                     break;
+
                     } 
        } 
    MyEvent.preventDefault();
@@ -116,8 +120,10 @@ function make_bird_slow_and_fall() {
          }  
     if (bird.y > myCanvas.height - bird.MyImg.height)  {      
          bird.velocity_y = 0;
-         game_mode = 'over';
+         game_mode = 'over';	
+		 
          }
+		 
     }
 function add_pipe(x_pos, top_of_gap, gap_width) {             
     var top_pipe = new MySprite();
@@ -232,6 +238,7 @@ function Do_a_Frame () {
  var bird = new MySprite("Img/lalat_webg.png");
  bird.x = myCanvas.width / 3;
  bird.y = myCanvas.height / 2;
+ 
 
  setInterval(Do_a_Frame, 1000/FPS);                            
  </script>  
